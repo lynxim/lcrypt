@@ -19,7 +19,6 @@ console.log(lcrypt.decode(cipherText));
 
 ```text
 eyJpdiI6ImRZdkxHRW1JZXdEVXJkdHB5dzloVUE9PSIsInZhbHVlIjoiOExpQTZYZFpkcG54VzZQVEtBbVdWQT09IiwibWFjIjoiODhmMTY2OTU2YWYyYzllNjVhNDNiOTUxZWU5ZTQ0OTU3ZjU2ZGYxOGEzOTI1YWJmOTJlNDQ5YjFjOTk0ZTlmZSJ9
-
 hello world!
 ```
 
@@ -31,7 +30,7 @@ Laravel .env file
 APP_KEY=base64:J92xtBr1tuLJV3mOFzMytJg4SDW0nirSAqMr7ZPGA4s=
 ```
 
-Laravel code
+#### Laravel code
 
 ```php
 <?php
@@ -45,6 +44,9 @@ echo Crypt::encryptString('some text.');
 ```text
 eyJpdiI6IldJZG9CYnhaYVhSN1JXVGVvL05zT3c9PSIsInZhbHVlIjoiSWwvVGdScFRZRm1KNTVnZnZEamg1Zz09IiwibWFjIjoiY2MzOTFhZmRhMTYxN2E4YWUzNDFhZTEwZGEzYTZlZjkwNzU3MDk0ZGIyODUzNjI1NjA5YjA5MDZkMjU3MWY4YSJ9
 ```
+
+#### NojeJS code
+
 ```javascript
 const lcrypt = require('lcrypt')('J92xtBr1tuLJV3mOFzMytJg4SDW0nirSAqMr7ZPGA4s=');
 
