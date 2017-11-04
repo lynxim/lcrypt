@@ -1,7 +1,7 @@
 # lcrypt
 The encryption and decryption of AES128, AES192, and AES256.
 
-### Example
+## Example
 
 ```javascript
 const LCrypt = require('lcrypt');
@@ -22,7 +22,7 @@ eyJpdiI6ImRZdkxHRW1JZXdEVXJkdHB5dzloVUE9PSIsInZhbHVlIjoiOExpQTZYZFpkcG54VzZQVEtB
 hello world!
 ```
 
-### For laravel
+## For laravel
 
 Laravel .env file
 
@@ -30,7 +30,7 @@ Laravel .env file
 APP_KEY=base64:J92xtBr1tuLJV3mOFzMytJg4SDW0nirSAqMr7ZPGA4s=
 ```
 
-#### Laravel code
+### Laravel code
 
 ```php
 <?php
@@ -45,7 +45,7 @@ echo Crypt::encryptString('some text.');
 eyJpdiI6IldJZG9CYnhaYVhSN1JXVGVvL05zT3c9PSIsInZhbHVlIjoiSWwvVGdScFRZRm1KNTVnZnZEamg1Zz09IiwibWFjIjoiY2MzOTFhZmRhMTYxN2E4YWUzNDFhZTEwZGEzYTZlZjkwNzU3MDk0ZGIyODUzNjI1NjA5YjA5MDZkMjU3MWY4YSJ9
 ```
 
-#### NojeJS code
+### NodeJS code
 
 ```javascript
 const lcrypt = require('lcrypt')('J92xtBr1tuLJV3mOFzMytJg4SDW0nirSAqMr7ZPGA4s=');
@@ -59,7 +59,7 @@ console.log(lcrypt.decode('eyJpdiI6IldJZG9CYnhaYVhSN1JXVGVvL05zT3c9PSIsInZhbHVlI
 some text.
 ```
 
-### Make key
+## Make key
 
 ```javascript
 const crypto = require('crypto');
