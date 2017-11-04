@@ -1,0 +1,26 @@
+{
+  "name": "lcrypt",
+  "version": "1.0.0",
+  "description": "Laravel crypt library",
+  "main": "index.js",
+  "scripts": {
+    "test": "node tests.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fskit/lcrypt.git"
+  },
+  "keywords": [
+    "simple aes",
+    "laravel aes",
+    "laravel crypt",
+    "laravel encrypt",
+    "laravel decrypt"
+  ],
+  "author": "Yac.fskit",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fskit/lcrypt/issues"
+  },
+  "homepage": "https://github.com/fskit/lcrypt#readme"
+}
