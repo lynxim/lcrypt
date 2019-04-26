@@ -3,6 +3,8 @@ The encryption and decryption of AES128, AES192, and AES256.
 
 ## Example
 
+### NodeJS code
+
 ```javascript
 const LCrypt = require('lcrypt');
 
@@ -22,7 +24,7 @@ eyJpdiI6ImRZdkxHRW1JZXdEVXJkdHB5dzloVUE9PSIsInZhbHVlIjoiOExpQTZYZFpkcG54VzZQVEtB
 hello world!
 ```
 
-## For laravel
+## For Laravel
 
 Laravel .env file
 
@@ -60,6 +62,8 @@ some text.
 ```
 
 ## Make key
+
+### NodeJS code
 
 ```javascript
 const crypto = require('crypto');
