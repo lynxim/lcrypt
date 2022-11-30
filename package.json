@@ -1,14 +1,16 @@
 {
   "name": "lcrypt",
-  "version": "1.0.2",
+  "version": "2.0.0",
   "description": "Laravel crypt library",
+  "type": "module",
   "main": "index.js",
+  "types": "index.d.ts",
   "scripts": {
-    "test": "node tests.js"
+    "test": "node test.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/fskit/lcrypt.git"
+    "url": "git+https://github.com/lynxim/lcrypt.git"
   },
   "keywords": [
     "simple aes",
@@ -17,10 +19,10 @@
     "laravel encrypt",
     "laravel decrypt"
   ],
-  "author": "Yac.fskit",
-  "license": "ISC",
+  "author": "lynxim",
+  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/fskit/lcrypt/issues"
+    "url": "https://github.com/lynxim/lcrypt/issues"
   },
-  "homepage": "https://github.com/fskit/lcrypt#readme"
+  "homepage": "https://github.com/lynxim/lcrypt#readme"
 }

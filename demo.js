@@ -1,5 +1,6 @@
-const crypto = require('crypto');
-const lcrypt = require('./index.js')('J92xtBr1tuLJV3mOFzMytJg4SDW0nirSAqMr7ZPGA4s=');
+import LCrypt from './index.js';
+
+const lcrypt = new LCrypt('J92xtBr1tuLJV3mOFzMytJg4SDW0nirSAqMr7ZPGA4s=');
 
 let cipherText = lcrypt.encode('some text.');
 

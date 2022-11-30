@@ -1,34 +1,35 @@
-var crypto = require('crypto');
+import { randomBytes, createCipheriv, createDecipheriv, createHmac } from 'crypto';
 
-function LCrypt(key) {
-    if (typeof key !== 'string' || key.length === 0) {
-        throw new Error('The key is invalid.');
+class LCrypt {
+    constructor(key) {
+        if (typeof key !== 'string' || key.length === 0) {
+            throw new Error('The key is invalid.');
+        }
+
+        key = Buffer.from(key.indexOf('base64:') === 0 ? key.substring(7) : key, 'base64');
+        this.method = getCipherMethod(key);
+        this.key = key;
     }
-    
-    key = new Buffer(key.indexOf('base64:') === 0 ? key.substr(7) : key, 'base64');
-    this.method = getCipherMethod(key);
-    this.key = key;
-}
 
-LCrypt.prototype.encode = function(value) {
-    var iv = crypto.randomBytes(16);
-    var cipher = crypto.createCipheriv(this.method, this.key, iv);
-    var value = cipher.update(value.toString(), 'utf8', 'base64') + cipher.final('base64');
-    var mac = hash(iv.toString('base64'), value, this.key);
-    var json = new Buffer(JSON.stringify({
-        iv: iv.toString('base64'),
-        value: value,
-        mac: mac.toString('hex')
-    }));
-    
-    return json.toString('base64');
-}
+    encode(value) {
+        var iv = randomBytes(16);
+        var cipher = createCipheriv(this.method, this.key, iv);
+        var value = cipher.update(value.toString(), 'utf8', 'base64') + cipher.final('base64');
+        var mac = hash(iv.toString('base64'), value, this.key);
+        var json = Buffer.from(JSON.stringify({
+            iv: iv.toString('base64'),
+            value: value,
+            mac: mac.toString('hex')
+        }));
 
-LCrypt.prototype.decode = function(payload) {
-    payload = getJsonPayload(payload, this.key);
-    var decipher = crypto.createDecipheriv(this.method, this.key, new Buffer(payload.iv, 'base64'));
-    
-    return decipher.update(payload.value, 'base64', 'utf8') + decipher.final('utf8');
+        return json.toString('base64');
+    }
+    decode(payload) {
+        payload = getJsonPayload(payload, this.key);
+        var decipher = createDecipheriv(this.method, this.key, Buffer.from(payload.iv, 'base64'));
+
+        return decipher.update(payload.value, 'base64', 'utf8') + decipher.final('utf8');
+    }
 }
 
 function getCipherMethod(key) {
@@ -45,7 +46,7 @@ function getCipherMethod(key) {
 }
 
 function getJsonPayload(cipher, key) {
-    var payload = JSON.parse(new Buffer(cipher, 'base64'));
+    var payload = JSON.parse(Buffer.from(cipher, 'base64'));
     
     if (!validPayload(payload)) {
         throw new Error('The payload is invalid.');
@@ -63,7 +64,7 @@ function hash(iv, value, key) {
 }
 
 function validMac(payload, key) {
-    var bytes = crypto.randomBytes(16);
+    var bytes = randomBytes(16);
     
     return calculateMac(payload, bytes, key).toString('hex') === getHmac(payload.mac, bytes).toString('hex');
 }
@@ -73,7 +74,7 @@ function calculateMac(payload, bytes, key) {
 }
 
 function getHmac(data, key) {
-    var sha = crypto.createHmac('sha256', key);
+    var sha = createHmac('sha256', key);
     sha.update(data.toString());
     
     return sha.digest();
@@ -83,9 +84,4 @@ function validPayload(object) {
     return typeof object === 'object' && object.hasOwnProperty('iv') && object.hasOwnProperty('value') && object.hasOwnProperty('mac');
 }
 
-function init(key) {
-    return new LCrypt(key);
-}
-
-module.exports = init;
-
+export default LCrypt;

@@ -1,14 +1,14 @@
 # lcrypt
-The encryption and decryption of AES128, AES192, and AES256.
+Laravel encryption and decryption algorithm implemented in Nodejs.
 
 ## Example
 
 ### NodeJS code
 
 ```javascript
-const LCrypt = require('lcrypt');
+import LCrypt from 'lcrypt';
 
-// LCrypt expects a 16bits, 24bits, 32bits base64 string to be used as key.
+// LCrypt expects a 16bits, 24bits or 32bits base64 string to be used as key.
 const lcrypt = new LCrypt('J92xtBr1tuLJV3mOFzMytJg4SDW0nirSAqMr7ZPGA4s=');
 
 let cipherText = lcrypt.encode('hello world!');
@@ -50,7 +50,8 @@ eyJpdiI6IldJZG9CYnhaYVhSN1JXVGVvL05zT3c9PSIsInZhbHVlIjoiSWwvVGdScFRZRm1KNTVnZnZE
 ### NodeJS code
 
 ```javascript
-const lcrypt = require('lcrypt')('J92xtBr1tuLJV3mOFzMytJg4SDW0nirSAqMr7ZPGA4s=');
+import LCrypt from 'lcrypt';
+const lcrypt = new LCrypt('J92xtBr1tuLJV3mOFzMytJg4SDW0nirSAqMr7ZPGA4s=');
 
 console.log(lcrypt.decode('eyJpdiI6IldJZG9CYnhaYVhSN1JXVGVvL05zT3c9PSIsInZhbHVlIjoiSWwvVGdScFRZRm1KNTVnZnZEamg1Zz09IiwibWFjIjoiY2MzOTFhZmRhMTYxN2E4YWUzNDFhZTEwZGEzYTZlZjkwNzU3MDk0ZGIyODUzNjI1NjA5YjA5MDZkMjU3MWY4YSJ9'));
 ```
@@ -61,7 +62,7 @@ console.log(lcrypt.decode('eyJpdiI6IldJZG9CYnhaYVhSN1JXVGVvL05zT3c9PSIsInZhbHVlI
 some text.
 ```
 
-## Make key
+## Generate key
 
 ### NodeJS code
 
