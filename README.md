@@ -1,6 +1,12 @@
 # lcrypt
 Laravel encryption and decryption algorithm implemented in Nodejs.
 
+## Install
+
+```shell
+npm install lcrypt
+```
+
 ## Example
 
 ### NodeJS code
